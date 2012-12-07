@@ -19,6 +19,7 @@ imgnum = 0
 for imgfile in argv[1:-1]:
 	try: img = Image.open(imgfile)
 	except: exit('Could not read "%s"!' % (imgfile))
+	
 	if imgnum == 0:
 		stack = asarray(img).copy()
 		stack.resize((n,) + stack.shape)
@@ -38,14 +39,14 @@ for i,j in gridwalk(stack[0].shape[:-1]):
 	quality = saturation + darkness/3
 	stack[:,i,j] = px[quality.argsort()]
 
-# Eventually, pick the sorted z-axis we want to export and call it 'bestz'.
-bestz = 0 # FOR TESTING ONLY, FOOL
+bestz = stack[n/3:].mean(axis=0)
 
-#outimg = Image.fromarray(stack[bestz].astype(uint8))
-#outimg.save(argv[-1])
-	
-for i in range(stack.shape[0]):
-	outimg = Image.fromarray(stack[i].astype(uint8))
-	outimg.save(str(i)+argv[-1])
+outimg = Image.fromarray(bestz.astype(uint8))
+outimg.save(argv[-1])
+
+# (use if you want to dump the whole sorted stack)	
+#for i in range(stack.shape[0]):
+#	outimg = Image.fromarray(stack[i].astype(uint8))
+#	outimg.save(str(i)+argv[-1])
 	
 	
