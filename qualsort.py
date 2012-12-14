@@ -11,9 +11,9 @@ def gridwalk((width,height)):
 if len(argv) < 3:
     exit('Usage: <input image>* <output image>. Output is a PNG.')
 
-stacktype = float64
+stacktype = uint8
 channel_max_val = 255
-n = float(len(argv)-2) # -1 for our filename, -1 for the ouput file
+n = float(len(argv)-2) # -1 for our filename, -1 for the output file
 
 imgnum = 0
 for imgfile in argv[1:-1]:
@@ -36,10 +36,10 @@ for i,j in gridwalk(stack[0].shape[:-1]):
 	px = stack[:,i,j]
 	saturation = px.max(axis=1) - px.min(axis=1)
 	darkness = 3*channel_max_val - px.sum(axis=1)
-	quality = saturation + darkness/3
+	quality = saturation + darkness/3.0
 	stack[:,i,j] = px[quality.argsort()]
 
-bestz = stack[n/3:].mean(axis=0)
+bestz = stack[n/3:].mean(axis=0, dtype=float64)
 
 outimg = Image.fromarray(bestz.astype(uint8))
 outimg.save(argv[-1])
