@@ -1,5 +1,12 @@
+'''
+	Simulate a cloudless satellite view by removing temporarily bright pixels from a time series, then averaging the rest.
+	Method: Charlie Loyd, 2012. 
+	Code skeleton: Charlie Loyd, 2010.
+	Tacking of method onto code skeleton: Chris Black, 2012.
+'''
+
 from sys import argv, exit, path
-path.append('/Library/Python') # or, y'know, fix your PYTHONPATH.
+path.append('/Library/Python') # If your PIL is broken in the same wasy as mine
 from PIL import Image
 from numpy import *
 
