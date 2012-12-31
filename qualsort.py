@@ -20,7 +20,7 @@ if len(argv) < 3:
 
 stacktype = uint8
 channel_max_val = 255
-n = float(len(argv)-2) # -1 for our filename, -1 for the output file
+n = len(argv)-2 # -1 for our filename, -1 for the output file
 
 imgnum = 0
 for imgfile in argv[1:-1]:
