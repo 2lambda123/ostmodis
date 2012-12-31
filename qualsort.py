@@ -6,7 +6,7 @@
 '''
 
 from sys import argv, exit, path
-path.append('/Library/Python') # If your PIL is broken in the same wasy as mine
+path.append('/Library/Python') # If your PIL is broken in the same way as mine
 from PIL import Image
 from numpy import *
 
