@@ -1,7 +1,7 @@
 ostmodis
 ========
 
-A quick, naive implementation of @celoyd's cloud-removal algorithm for satellite images. 
+A quick, naive implementation of [@celoyd](https://github.com/celoyd)'s cloud-removal algorithm for satellite images. 
 
 It was December of 2012 and I wanted some cloud-free satellite images. I thought 
 "Hey, didn't @celoyd [do something like this](https://www.flickr.com/photos/vruba/8017203149/in/set-72157631622037685)? 
